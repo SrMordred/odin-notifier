@@ -37,6 +37,21 @@ foreign kernel32 {
         lpCompletionRoutine: LPOVERLAPPED_COMPLETION_ROUTINE,
       ) -> w.BOOL ---;
 
+    CopyFileW :: proc (
+        lpExistingFileName: w.LPCWSTR,
+        lpNewFileName: w.LPCWSTR,
+        bFailIfExists: w.BOOL,
+      ) -> w.BOOL ---;
+
+    CopyFileExW :: proc(
+        lpExistingFileName: w.LPCWSTR,
+        lpNewFileName: w.LPCWSTR,
+        lpProgressRoutine: w.LPPROGRESS_ROUTINE,
+        lpData : w.LPVOID,
+        pbCancel: w.LPBOOL,
+        dwCopyFlags: w.DWORD,
+    ) -> w.BOOL ---;
+
 }
 
 MAKELANGID :: proc( p: w.WORD, s: w.WORD) -> w.WORD {
